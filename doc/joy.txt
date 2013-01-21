@@ -1,0 +1,66 @@
+*joy.txt*  Esc key where Bill Joy had his.
+
+Author:  ☈king <http://github.com/rking>
+License: Utterly CC0/PD
+
+INTRODUCTION                                                            *joy*
+
+
+tl;dr:
+
+    :imap <tab> <esc>
+    (See: <https://en.wikipedia.org/wiki/Vi#Creation>)
+
+IBM made some really odd decisions in popularizing the current keyboard, so
+we're taking the power back.
+
+This is the real heart of vim-joy. Just make it so hitting tab in Insert mode
+gets you out into Normal mode.
+
+The only extra complexity is due to the "Training Wheels" needed to get used
+to not being able to hit tab normally. This is most surprising when:
+
+* When on an empty line, meaning "increase indent". Use <C-t> instead.
+* When in the middle of a line, and trying to line things up. I don't have an
+  exact solution for this, other than to do the work in Normal mode (e.g. with
+  <C-v> combined with << and >>
+
+To affect the behavior of this plugin, you can either:
+
+                                                                *'g:joy_pure'*
+
+   let g:joy_pure = 1
+
+Commit to using <C-t> instead of <Tab> for indentation. At this point it
+becomes identical in behavior to Insert Mode <Tab> == <Esc>.
+
+                                                               *'g:joy_mixed'*
+
+   let g:joy_mixed = 1
+
+To turn off the nag message, and forget about <C-t> for indent.
+
+TEMPORARILY DISABLING                                           *'joy-temp'*
+
+Sometimes you want to affect the behavior only for this session (e.g. for pair
+programming with someone who isn't feeling it)
+
+To go back to impure mode:
+
+   :unlet g:joy_pure
+
+To make <Tab> be default in behavior:
+
+   :unimap <Tab>
+
+THANKS                                                            *joy-thanks*
+
+Thanks to tpope, as always!
+
+ABOUT                                                              *joy-about*
+
+Grab the latest version or report a bug on Github:
+
+http://github.com/rking/vim-joy
+
+ vim:tw=78:et:ft=help:norl:
